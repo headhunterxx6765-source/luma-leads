@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { 
-  FileSpreadsheet, Google, Database, CheckCircle, 
+  FileSpreadsheet, Globe, Database, CheckCircle, 
   XCircle, Loader2, Link2, ExternalLink,
   Settings, Plus, Trash2
 } from "lucide-react"
@@ -31,7 +31,7 @@ const integrations = [
     id: "google-maps",
     name: "Google Maps / Places",
     description: "Search public business listings for lead discovery.",
-    icon: Google,
+    icon: Globe,
     color: "text-blue-500",
     bg: "bg-blue-100 dark:bg-blue-900/30",
     connected: true,

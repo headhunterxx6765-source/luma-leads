@@ -172,14 +172,14 @@ export default function AnalyticsPage() {
                 </thead>
                 <tbody className="divide-y">
                   {[
-                    { gen: "gen-001", niche: "Dental Clinics", loc: "Varanasi", req: 50, gen: 47, contacted: 12, won: 2, status: "Completed" },
-                    { gen: "gen-002", niche: "Restaurants", loc: "Kanpur", req: 50, gen: 52, contacted: 15, won: 1, status: "Completed" },
-                    { gen: "gen-003", niche: "Coaching", loc: "Lucknow", req: 30, gen: 28, contacted: 8, won: 0, status: "Generating" },
-                    { gen: "gen-004", niche: "Gyms", loc: "Mumbai", req: 40, gen: 38, contacted: 10, won: 3, status: "Completed" },
-                    { gen: "gen-005", niche: "Real Estate", loc: "Delhi", req: 60, gen: 55, contacted: 22, won: 2, status: "Partial" },
+                    { id: "gen-001", niche: "Dental Clinics", loc: "Varanasi", req: 50, gen: 47, contacted: 12, won: 2, status: "Completed" },
+                    { id: "gen-002", niche: "Restaurants", loc: "Kanpur", req: 50, gen: 52, contacted: 15, won: 1, status: "Completed" },
+                    { id: "gen-003", niche: "Coaching", loc: "Lucknow", req: 30, gen: 28, contacted: 8, won: 0, status: "Generating" },
+                    { id: "gen-004", niche: "Gyms", loc: "Mumbai", req: 40, gen: 38, contacted: 10, won: 3, status: "Completed" },
+                    { id: "gen-005", niche: "Real Estate", loc: "Delhi", req: 60, gen: 55, contacted: 22, won: 2, status: "Partial" },
                   ].map((row, i) => (
                     <tr key={i} className="hover:bg-muted/30">
-                      <td className="py-3 font-mono text-sm">{row.gen}</td>
+                      <td className="py-3 font-mono text-sm">{row.id}</td>
                       <td className="py-3">{row.niche}</td>
                       <td className="py-3">{row.loc}</td>
                       <td className="py-3">{row.req}</td>
