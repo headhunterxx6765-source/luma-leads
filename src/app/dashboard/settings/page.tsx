@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { 
   User, Mail, Bell, Shield, Key, 
   Moon, Sun, Palette, Database, Trash2,
+  Settings,
   Loader2, Save, Check
 } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -205,7 +206,7 @@ export default function SettingsPage() {
                 <p className="text-sm text-muted-foreground">Permanently delete your account and all data</p>
               </div>
             </div>
-            <Button variant="destructive" outline>Delete</Button>
+            <Button variant="destructive">Delete</Button>
           </div>
         </CardContent>
       </Card>
@@ -220,7 +221,7 @@ export default function SettingsPage() {
           <CardDescription>Irreversible actions</CardDescription>
         </CardHeader>
         <CardContent>
-          <Button variant="destructive" outline onClick={() => signOut()}>
+          <Button variant="destructive" onClick={() => signOut()}>
             Sign Out Everywhere
           </Button>
         </CardContent>

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { 
   Kanban, Plus, Search, Filter, Users, Target,
-  ArrowRight, Sparkles, MoreHorizontal, Edit, Trash2
+  ArrowRight, Sparkles, MoreHorizontal, Edit, Trash2, Download
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { CRM_STATUSES } from "@/lib/utils"

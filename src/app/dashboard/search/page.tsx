@@ -198,9 +198,9 @@ export default function SearchPage() {
           {currentStep === 0 && (
             <div className="space-y-4">
               <label className="text-sm font-medium">Business Type</label>
-              <Select 
-                value={formData.niche} 
-                onValueChange={(v) => updateField("niche", v)}
+              <Select
+                value={formData.niche}
+                onChange={(e) => updateField("niche", e.target.value)}
                 className="w-full"
               >
                 <option value="">Select a niche...</option>
@@ -223,9 +223,9 @@ export default function SearchPage() {
             <div className="space-y-4">
               <label className="text-sm font-medium">Location</label>
               <div className="flex gap-2">
-                <Select 
-                  value={formData.location} 
-                  onValueChange={(v) => updateField("location", v)}
+                <Select
+                  value={formData.location}
+                  onChange={(e) => updateField("location", e.target.value)}
                   className="flex-1"
                 >
                   <option value="">Select state...</option>

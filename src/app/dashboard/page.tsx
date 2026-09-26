@@ -53,7 +53,7 @@ const mockGenerations = [
   },
 ]
 
-const statusColors = {
+const statusColors: Record<string, "success" | "warning" | "destructive" | "secondary"> = {
   completed: "success",
   generating: "warning",
   failed: "destructive",

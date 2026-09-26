@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { 
   LayoutDashboard, Search, Database, Users, 
   Brain, BarChart3, Settings, LogOut, Menu, X,
-  Sparkles, ChevronDown, ChevronUp
+  Sparkles, ChevronRight, ChevronLeft
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useState } from "react"
