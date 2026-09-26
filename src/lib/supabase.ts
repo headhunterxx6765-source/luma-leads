@@ -1,22 +1,39 @@
-import { createClient } from "@supabase/supabase-js"
+import { createClient, type SupabaseClient } from "@supabase/supabase-js"
 
-// Use defaults to avoid build errors when env vars are not set
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://placeholder.supabase.co"
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.placeholder"
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
-// Only create client if URL is valid
-export const supabase = 
-  process.env.NEXT_PUBLIC_SUPABASE_URL 
-    ? createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
-    : { 
-        auth: { 
-          getSession: () => Promise.resolve({ data: { session: null }, error: null }),
-          onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => {} } } }),
-          signInWithPassword: () => Promise.resolve({ data: null, error: new Error("Set up Supabase first") }),
-          signUp: () => Promise.resolve({ data: null, error: new Error("Set up Supabase first") }),
-          signOut: () => Promise.resolve({ error: null }),
-        } 
-      }
+// Create mock supabase for demo mode (when env vars are not set)
+function createDemoSupabase(): SupabaseClient {
+  return {
+    auth: {
+      getSession: () => Promise.resolve({ data: { session: null }, error: null }),
+      onAuthStateChange: (_callback: any, handler: any) => ({
+        data: { subscription: { unsubscribe: () => {} } },
+      }),
+      signInWithPassword: (_creds: any) => Promise.resolve({ data: null, error: null }),
+      signUp: (_creds: any) => Promise.resolve({ data: null, error: null }),
+      signOut: () => Promise.resolve({ error: null }),
+    },
+    // Add other methods as needed for build compatibility
+    from: (_table: string) => ({
+      select: () => ({ data: [], error: null }),
+      insert: () => ({ error: null }),
+      update: () => ({ error: null }),
+      delete: () => ({ error: null }),
+      eq: () => ({ data: [], error: null }),
+      single: () => ({ data: null, error: null }),
+      maybeSingle: () => ({ data: null, error: null }),
+      order: () => ({ data: [], error: null }),
+      limit: () => ({ data: [], error: null }),
+    }),
+  } as unknown as SupabaseClient
+}
+
+export const supabase: SupabaseClient =
+  supabaseUrl && supabaseAnonKey
+    ? createClient(supabaseUrl, supabaseAnonKey)
+    : createDemoSupabase()
 
 export type Generation = {
   id: string
